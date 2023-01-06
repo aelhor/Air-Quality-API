@@ -2,6 +2,7 @@ const app = require('express')()
 const dotenv = require('dotenv')
 const cors = require("cors")
 const mongoose = require('mongoose')
+
 const iqair = require('./api/routes/iqair')
 const mostPolParis= require('./api/routes/mostPolParis')
 dotenv.config()
@@ -17,6 +18,7 @@ mongoose.connect(process.env.MONGODB_URI, {
 
 
 
+
 app.use(cors())
 
 // Routes
@@ -24,7 +26,7 @@ app.use('/iqair', iqair)
 app.use('/paris', mostPolParis)
 
 // Corn 
-// require('./api/corn/airQuality')
+require('./api/corn/airQuality')
 
 
 const port = process.env.PORT || 5000
